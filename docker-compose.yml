@@ -1,0 +1,17 @@
+version: "3.7"
+
+services:
+  firebird:
+    image: "jacobalberty/firebird:2.5-sc"
+    networks:
+      - services_test
+    ports:
+      - "3050:3050"
+    environment:
+      FIREBIRD_DATABASE: "examples.fdb"
+      FIREBIRD_USER: "test"
+      ISC_PASSWORD: "masterkey"
+      EnableWireCrypt: "true"
+
+networks:
+  services_test:
